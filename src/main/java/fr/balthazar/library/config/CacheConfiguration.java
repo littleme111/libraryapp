@@ -45,6 +45,12 @@ public class CacheConfiguration {
             cm.createCache(fr.balthazar.library.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(fr.balthazar.library.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(fr.balthazar.library.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(fr.balthazar.library.domain.Collection.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.balthazar.library.domain.Collection.class.getName() + ".books", jcacheConfiguration);
+            cm.createCache(fr.balthazar.library.domain.Book.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.balthazar.library.domain.Book.class.getName() + ".copys", jcacheConfiguration);
+            cm.createCache(fr.balthazar.library.domain.Copy.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.balthazar.library.domain.Borrow.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
