@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "books",
+            "otherEntityName": "book",
+            "otherEntityRelationshipName": "collection"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "collectionName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180118160601",
+    "entityTableName": "collection",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Borrow</span> {{vm.borrow.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Borrow Date</span></dt>
+        <dd>
+            <span>{{vm.borrow.borrowDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Return Date</span></dt>
+        <dd>
+            <span>{{vm.borrow.returnDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Copy</span></dt>
+        <dd>
+            <a ui-sref="copy-detail({id:vm.borrow.copy.id})">{{vm.borrow.copy.id}}</a>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{vm.borrow.user.id}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="borrow-detail.edit({id:vm.borrow.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

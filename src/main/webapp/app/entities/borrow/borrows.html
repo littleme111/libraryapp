@@ -1,0 +1,66 @@
+<div>
+    <h2>Borrows</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="borrow.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Borrow
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Borrow Date</span></th>
+                    <th><span>Return Date</span></th>
+                    <th><span>Copy</span></th>
+                    <th><span>User</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="borrow in vm.borrows track by borrow.id">
+                    <td><a ui-sref="borrow-detail({id:borrow.id})">{{borrow.id}}</a></td>
+                        <td>{{borrow.borrowDate | date:'mediumDate'}}</td>
+                        <td>{{borrow.returnDate | date:'mediumDate'}}</td>
+                    <td>
+                        <a ui-sref="copy-detail({id:borrow.copy.id})">{{borrow.copy.id}}</a>
+                    </td>
+                    <td>
+                        {{borrow.user.id}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="borrow-detail({id:borrow.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="borrow.edit({id:borrow.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="borrow.delete({id:borrow.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
