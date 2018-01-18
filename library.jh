@@ -1,0 +1,27 @@
+entity Collection {
+	collectionName String
+}
+entity Book {
+    title String
+    available Boolean
+}
+
+entity Copy {
+	available Boolean
+}
+
+entity Borrow {
+    borrowDate LocalDate,
+    returnDate LocalDate
+}
+relationship OneToMany {
+	Collection{books} to Book,
+    Book{copys} to Copy
+}
+relationship OneToOne {
+	Borrow{copy} to Copy
+}
+relationship ManyToOne{
+	Borrow{user} to User,
+	Copy{book} to Book
+}
