@@ -21,19 +21,16 @@
                     <th><span>ID</span></th>
                     <th><span>Available</span></th>
                     <th><span>Book</span></th>
-                    <th><span>Book</span></th>
                     <th></th>
+
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="copy in vm.copies track by copy.id">
                     <td><a ui-sref="copy-detail({id:copy.id})">{{copy.id}}</a></td>
-                    <td>{{copy.available}}</td>
+                    <td><i  ng-class="{'glyphicon glyphicon-ok' : copy.available == true, 'glyphicon glyphicon-remove' : copy.available == false}" ></i></td>
                     <td>
-                        <a ui-sref="book-detail({id:copy.book.id})">{{copy.book.id}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="book-detail({id:copy.book.id})">{{copy.book.id}}</a>
+                        <a ui-sref="book-detail({id:copy.book.id})">{{copy.book.title}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

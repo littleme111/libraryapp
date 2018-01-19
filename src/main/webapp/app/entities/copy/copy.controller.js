@@ -13,11 +13,14 @@
 
         vm.copies = [];
 
+
+
         loadAll();
 
         function loadAll() {
             Copy.query(function(result) {
                 vm.copies = result;
+                console.log(vm.copies);
                 vm.searchQuery = null;
             });
         }

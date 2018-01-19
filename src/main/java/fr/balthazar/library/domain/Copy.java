@@ -29,9 +29,6 @@ public class Copy implements Serializable {
     @ManyToOne
     private Book book;
 
-    @ManyToOne
-    private Book book;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -54,18 +51,6 @@ public class Copy implements Serializable {
         this.available = available;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public Copy book(Book book) {
-        this.book = book;
-        return this;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
 
     public Book getBook() {
         return book;

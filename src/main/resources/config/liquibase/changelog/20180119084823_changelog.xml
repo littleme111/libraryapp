@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="34011-79-19 (generated)" id="1516351709011-1">
+        <createTable tableName="borrow">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="borrowPK"/>
+            </column>
+            <column name="borrow_date" type="BYTEA"/>
+            <column name="return_date" type="BYTEA"/>
+            <column name="copy_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="34011-79-19 (generated)" id="1516351709011-2">
+        <createTable tableName="copy">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="copyPK"/>
+            </column>
+            <column name="available" type="BOOLEAN"/>
+            <column name="book_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="34011-79-19 (generated)" id="1516351709011-3">
+        <addUniqueConstraint columnNames="copy_id" constraintName="UC_BORROWCOPY_ID_COL" tableName="borrow"/>
+    </changeSet>
+    <changeSet author="34011-79-19 (generated)" id="1516351709011-4">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="borrow" constraintName="FK70103lj5exfu5n9funafp6l3n" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="34011-79-19 (generated)" id="1516351709011-5">
+        <addForeignKeyConstraint baseColumnNames="copy_id" baseTableName="borrow" constraintName="FKdxvm90wmembudkvcoguvxa9yp" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="copy"/>
+    </changeSet>
+    <changeSet author="34011-79-19 (generated)" id="1516351709011-6">
+        <addForeignKeyConstraint baseColumnNames="collection_id" baseTableName="book" constraintName="FKhdy2tbeexvmabkq9k1djmmiio" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="collection"/>
+    </changeSet>
+    <changeSet author="34011-79-19 (generated)" id="1516351709011-7">
+        <addForeignKeyConstraint baseColumnNames="book_id" baseTableName="copy" constraintName="FKof5k7k6c41i06j6fj3slgsmam" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="book"/>
+    </changeSet>
+</databaseChangeLog>

@@ -7,18 +7,14 @@
         Added the constraints for entity Copy.
     -->
     <changeSet id="20180118160603-2" author="jhipster">
-        
-        <addForeignKeyConstraint baseColumnNames="book_id"
-                                 baseTableName="copy"
-                                 constraintName="fk_copy_book_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="book"/>
 
         <addForeignKeyConstraint baseColumnNames="book_id"
                                  baseTableName="copy"
                                  constraintName="fk_copy_book_id"
                                  referencedColumnNames="id"
                                  referencedTableName="book"/>
+
+
 
     </changeSet>
 </databaseChangeLog>
